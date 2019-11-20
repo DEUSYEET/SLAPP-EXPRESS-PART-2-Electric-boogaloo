@@ -251,3 +251,6 @@ python2-venv
 
 #mongoData
 /mongoData
+
+
+.bat
