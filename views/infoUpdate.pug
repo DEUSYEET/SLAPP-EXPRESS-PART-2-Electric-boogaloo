@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    div(id="colorWrapperEdit")
+        div(id="wrapperEdit")
+            h1(class="mainHeader") Edit Information
+            form(id="editForm" method="post" action="/edit")
+                label(for="username") Username:&nbsp;
+                br
+                input(type="text" required name="username" class="inputBox" value=user.username)
+                br
+                label(for="password") Password:&nbsp;
+                br
+                input(type="password" name="password" class="inputBox" value='')
+                br
+                label(for="email") Email:&nbsp;
+                br
+                input(type="email" required name="email" class="inputBox" value=user.email)
+                br
+                label(for="age") Age:&nbsp;
+                br
+                input(type="number" required name="age" class="inputBox" value=user.age)
+                br
+                br
+                label(for="questionOne") What is your gender?
+                br
+                input(type="radio" name="questionOne" value="Male")
+                label(for="Male") &nbsp;Male
+                br
+                input(type="radio" name="questionOne" value="Female")
+                label(for="Female") &nbsp;Female
+                br
+                input(type="radio" selected name="questionOne" value="Other")
+                label(for="Other") &nbsp;Other
+                br
+                br
+                label(for="questionTwo") Which temperature do you prefer?
+                br
+                input(type="radio" name="questionTwo" value="Warm")
+                label(for="Warm") &nbsp;Warm
+                br
+                input(type="radio" name="questionTwo" value="Cold")
+                label(for="Cold") &nbsp;Cold
+                br
+                input(type="radio" selected name="questionTwo" value="Hot")
+                label(for="Hot") &nbsp;Hot
+                br
+                br
+                label(for="questionThree") Do you like Winnie The Pooh?
+                br
+                input(type="radio" name="questionThree" value="Yes")
+                label(for="Yes") &nbsp;Yes
+                br
+                input(type="radio" name="questionThree" value="Definitely Yes")
+                label(for="Definitely Yes") &nbsp;Definitely Yes
+                br
+                input(type="radio" selected name="questionThree" value="No(Wrong Answer)")
+                label(for="No(Wrong Answer)") &nbsp;No(Wrong Answer)
+                br
+                br
+                input(type="submit" class="submitButton")
+                a(href="/index")
+                    p(id="testP") Home
