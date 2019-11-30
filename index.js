@@ -19,6 +19,12 @@ const checkAuth = (req, res, next) => {
     }
 }
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use(express.static(path.join(__dirname + "/public")));
@@ -28,6 +34,7 @@ app.use(expressSession({
     saveUninitialized: true,
     resave: true
 }))
+
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: true
@@ -39,6 +46,8 @@ app.get('/index', checkAuth, route.index);
 app.get('/logout', route.logout);
 app.get('/signup', route.create);
 app.get('/edit', checkAuth, route.edit);
+app.get('/api', route.userData);
+app.get('/userdata', route.viewData);
 app.post('/signup', urlencodedParser, route.createUser);
 app.post('/login', urlencodedParser, route.loginUser);
 app.post('/edit', urlencodedParser, route.editUser);
