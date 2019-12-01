@@ -1,2 +1,2 @@
-# SLAPP-EXPRESS-PART-2-Electric-boogaloo
-Code for the second part of Data Express in the class MTM282-SB
+# The-Slapp-Express
+This is the code for our Data Express assignment in MTM282

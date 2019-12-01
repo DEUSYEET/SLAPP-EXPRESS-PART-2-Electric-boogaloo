@@ -1,0 +1,200 @@
+*{
+    padding:0;
+    margin:0;
+}
+select {
+    width: 200px;
+}
+#label{
+    margin-right: 10px;
+}
+
+img{
+    margin-top: -4px;
+    max-width: 100%;
+}
+
+nav {
+    background-color: #F9b4bf;
+    width:100%;
+    min-height:80px;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav p {
+	font-family: arial;
+	color: #222;
+	font-size:26px;
+	line-height:50px;
+	Float: left;
+    padding: 16px 20px;
+    padding-top: -10px;
+	position: relative;
+}
+
+nav ul {
+	float:right;
+}
+
+nav ul a {
+	float: left;
+	list-style:none;
+    position: relative;
+    text-decoration:none;
+    display:block;
+    padding: 23px 25px 10px 10px;
+    font-family: arial;
+    color: #222;
+    font-size:24px;
+}
+
+nav ul a:hover {
+	color: #444;
+}
+
+#wrapperSignup{
+    margin: 0 auto;
+    padding: 10px;
+    text-align: justify;
+    max-width: 280px;
+    min-height: 320px;
+    clear: both;
+    text-decoration: none;
+    background-color: rgba(249,180,191,0.2);
+}
+
+#wrapperSignup form input{
+    font-size: 20px;
+}
+
+#wrapperSignup form label{
+    font-size: 20px;
+}
+
+#wrapperLogin{
+    margin: 0 auto;
+    padding: 10px;
+    text-align: justify;
+    max-width: 256px;
+    min-height: 170px;
+    clear: both;
+    text-decoration: none;
+    background-color: rgba(249,180,191,0.2);
+}
+
+#wrapperLogin form input{
+    font-size: 20px;
+}
+
+#wrapperLogin form label{
+    font-size: 20px;
+}
+
+#wrapperEdit{
+    margin: 0 auto;
+    padding: 10px;
+    text-align: justify;
+    max-width: 280px;
+    min-height: 170px;
+    clear: both;
+    text-decoration: none;
+    background-color: rgba(249,180,191,0.2);
+}
+
+#wrapperEdit form input{
+    font-size: 20px;
+}
+
+#wrapperEdit form label{
+    font-size: 20px;
+}
+
+#wrapperIndex{
+    margin: 0 auto;
+    padding: 10px;
+    text-align: justify;
+    max-width: 280px;
+    min-height: 190px;
+    clear: both;
+    text-decoration: none;
+    background-color: rgba(249,180,191,0.2);
+}
+
+#wrapperIndex p{
+    font-size: 20px;
+}
+
+.inputBox{
+    height: 30px;
+    width: 250px;
+    font-size: 19px;
+}
+
+
+.radioButtonClass{
+    font-size: 20px;
+}
+
+.submitButton{
+    width: 100px;
+    height: 24px;
+    font-size: 18px;
+    padding-bottom: 2px;
+}
+
+#colorWrapperSignup{
+    max-width: 100%;
+    min-height: 320px;
+    background-color: rgba(249,180,191,0.2);
+    padding:13px;
+    margin-top:25px;
+}
+
+#colorWrapperLogin{
+    max-width: 100%;
+    min-height: 170px;
+    background-color: rgba(249,180,191,0.2);
+    padding:13px;
+    margin-top:25px;
+}
+
+#colorWrapperEdit{
+    max-width: 100%;
+    min-height: 170px;
+    background-color: rgba(249,180,191,0.2);
+    padding:13px;
+    margin-top:25px;
+}
+
+#colorWrapperIndex{
+    max-width: 100%;
+    min-height: 190px;
+    background-color: rgba(249,180,191,0.2);
+    padding:13px;
+    margin-top:25px;
+}
+
+#testP{
+    float:right;
+    text-align: justify;
+    margin-top: -20px;
+    margin-left: -18px;
+}
+
+#editP{
+    float:right;
+    margin-top:-20px;
+}
+
+#logP{
+    float:left;
+    margin-top:-20px;
+}
+
+.mainHeader{
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+
