@@ -1,10 +1,54 @@
 extends layout
 
+
 block content
     div(id="colorWrapperEdit")
         div(id="wrapperEdit")
             h1(class="mainHeader") Edit Information
             form(id="editForm" method="post" action="/edit")
+                label(for="avatar") Avatar:
+                br
+                div
+                    select(id="selectEye" name="selectEye" onChange='changeAvatar()')
+                        option(value=user.eye selected) Currently Saved: #{user.eye}
+                        option(value=eyes[0]) #{eyes[0]}
+                        option(value=eyes[1]) #{eyes[1]}
+                        option(value=eyes[2]) #{eyes[2]}
+                        option(value=eyes[3]) #{eyes[3]}
+                        option(value=eyes[4]) #{eyes[4]}
+                        option(value=eyes[5]) #{eyes[5]}
+                        option(value=eyes[6]) #{eyes[6]}
+                        option(value=eyes[7]) #{eyes[7]}
+                        option(value=eyes[8]) #{eyes[8]}
+                    br
+                    select(id="selectNose" name="selectNose" onChange='changeAvatar()')
+                        option(value=user.nose selected) Currently Saved: #{user.nose}
+                        option(value=noses[0]) #{noses[0]}
+                        option(value=noses[1]) #{noses[1]}
+                        option(value=noses[2]) #{noses[2]}
+                        option(value=noses[3]) #{noses[3]}
+                        option(value=noses[4]) #{noses[4]}
+                        option(value=noses[5]) #{noses[5]}
+                        option(value=noses[6]) #{noses[6]}
+                    br
+                    select(id="selectMouth" name="selectMouth" onChange='changeAvatar()')
+                        option(value=user.mouth selected) Currently Saved: #{user.mouth}
+                        option(value=mouths[0]) #{mouths[0]}
+                        option(value=mouths[1]) #{mouths[1]}
+                        option(value=mouths[2]) #{mouths[2]}
+                        option(value=mouths[3]) #{mouths[3]}
+                        option(value=mouths[4]) #{mouths[4]}
+                        option(value=mouths[5]) #{mouths[5]}
+                        option(value=mouths[6]) #{mouths[6]}
+                        option(value=mouths[7]) #{mouths[7]}
+                input(type='color' id='selectColor' name="selectColor" value= "#" + user.color onChange='changeAvatar()')
+                br
+                br
+                img(id='avatarpreview' src=user.avatarSource)
+                br
+                p (remember to save; this is only a preview)
+                br
+                br
                 label(for="username") Username:&nbsp;
                 br
                 input(type="text" required name="username" class="inputBox" value=user.username)
@@ -61,3 +105,20 @@ block content
                 input(type="submit" class="submitButton")
                 a(href="/index")
                     p(id="testP") Home
+    script.
+        
+        
+        function changeAvatar() {
+            var img = document.getElementById('avatarpreview');
+            var eyeSelector = document.getElementById('selectEye');
+            var noseSelector = document.getElementById('selectNose');
+            var mouthSelector = document.getElementById('selectMouth');
+            var colorSelector = document.getElementById('selectColor');
+            eye = eyeSelector.value;
+            nose = noseSelector.value;
+            mouth = mouthSelector.value;
+            colorWithHash = colorSelector.value;
+            color = colorWithHash.substr(1);
+            img.src = `https://api.adorable.io/avatars/face/${eye}/${nose}/${mouth}/${color}/abott@adorable.png`;
+        }
+

@@ -5,6 +5,10 @@ var currentdate = new Date();
 var dateString = ((currentdate.getMonth() + 1) + "_" + currentdate.getDate() + "_" + currentdate.getFullYear());
 var currentUser;
 
+var eyes = ['eyes1','eyes2','eyes3','eyes4','eyes5','eyes6','eyes7','eyes9','eyes10'];
+var noses = ['nose2','nose3','nose4','nose5','nose6','nose7','nose9'];
+var mouths = ['mouth1','mouth3','mouth5','mouth6','mouth7','mouth9', 'mouth10', 'mouth11'];
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
 
@@ -15,6 +19,11 @@ mdb.once('open', function (callback) {
 });
 
 var userSchema = mongoose.Schema({
+    eye: String,
+    nose: String,
+    mouth: String,
+    color: String,
+    avatarSource: String,
     username: String,
     password: String,
     email: String,
@@ -28,14 +37,10 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User_Collection', userSchema);
 
 exports.index = (req, res) => {
-    var lastVisited;
-    res.cookie('lastVisit', dateString, {
-        maxAge: 999999999999999
-    });
-    if (req.cookies.lastVisit) {
+    var lastVisited = "This is your first time here!";
+    res.cookie('lastVisit', dateString, {maxAge : 999999999999999});
+    if(req.cookies.lastVisit) {
         lastVisited = req.cookies.lastVisit;
-    } else {
-        lastVisited = "This is your first time here!";
     }
     User.findById(currentUser.id, (err, user) => {
         if (err) {
@@ -80,7 +85,17 @@ exports.create = (req, res) => {
 
 
 exports.createUser = (req, res) => {
+    var eye = eyes[Math.floor(Math.random() * eyes.length)];
+    var nose = noses[Math.floor(Math.random() * noses.length)];
+    var mouth = mouths[Math.floor(Math.random() * mouths.length)];
+    var color = Math.floor(Math.random()*16777215).toString(16);
+    
     var user = new User({
+        eye: `${eye}`,
+        nose: `${nose}`,
+        mouth: `${mouth}`,
+        color: `${color}`,
+        avatarSource: `https://api.adorable.io/avatars/face/${eye}/${nose}/${mouth}/${color}/abott@adorable.png`,
         username: req.body.username,
         password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
         email: req.body.email,
@@ -99,9 +114,7 @@ exports.createUser = (req, res) => {
     req.session.user = {
         isAuthenticated: true
     }
-    res.render('index', {
-        currentUser: currentUser
-    });
+    res.render('index', { currentUser: currentUser });
 };
 
 exports.logout = (req, res) => {
@@ -116,14 +129,28 @@ exports.logout = (req, res) => {
 
 exports.edit = (req, res) => {
     res.render('infoUpdate', {
-        user: currentUser
+        user: currentUser,
+        eyes: eyes,
+        noses: noses,
+        mouths: mouths,
     });
 };
 
 exports.editUser = (req, res) => {
+
+    var eye = req.body.selectEye;
+    var nose = req.body.selectNose;
+    var mouth = req.body.selectMouth;
+    var color = req.body.selectColor.substr(1);
+
     if (req.body.password != '') {
         User.findByIdAndUpdate(currentUser.id, {
             $set: {
+                'eye': `${eye}`,
+                'nose': `${nose}`,
+                'mouth': `${mouth}`,
+                'color': `${color}`,
+                'avatarSource': `https://api.adorable.io/avatars/face/${eye}/${nose}/${mouth}/${color}/abott@adorable.png`,
                 'username': req.body.username,
                 'password': bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
                 'email': req.body.email,
@@ -138,6 +165,11 @@ exports.editUser = (req, res) => {
     } else {
         User.findByIdAndUpdate(currentUser.id, {
             $set: {
+                'eye': `${eye}`,
+                'nose': `${nose}`,
+                'mouth': `${mouth}`,
+                'color': `${color}`,
+                'avatarSource': `https://api.adorable.io/avatars/face/${eye}/${nose}/${mouth}/${color}/abott@adorable.png`,
                 'username': req.body.username,
                 'email': req.body.email,
                 'age': req.body.age,
