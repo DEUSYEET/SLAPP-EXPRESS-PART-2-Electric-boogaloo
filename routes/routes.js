@@ -220,18 +220,18 @@ exports.viewData = (req, res) => {
             }
         });
         //Anything that needs to be done with the user data must be done here
+        
+        
+        
         res.render("apiData", {
             data: userData
         })
-
-
-
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
     }).catch(err => {
         console.log(err);
     });
