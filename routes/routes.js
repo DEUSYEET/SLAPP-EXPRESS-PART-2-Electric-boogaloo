@@ -142,7 +142,6 @@ exports.editUser = (req, res) => {
     var nose = req.body.selectNose;
     var mouth = req.body.selectMouth;
     var color = req.body.selectColor.substr(1);
-
     if (req.body.password != '') {
         User.findByIdAndUpdate(currentUser.id, {
             $set: {

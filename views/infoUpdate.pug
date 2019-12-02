@@ -68,19 +68,19 @@ block content
                 br
                 label(for="questionOne") What is your gender?
                 br
-                input(type="radio" name="questionOne" value="Male")
+                input(type="radio" name="questionOne" value="Male" required)
                 label(for="Male") &nbsp;Male
                 br
                 input(type="radio" name="questionOne" value="Female")
                 label(for="Female") &nbsp;Female
                 br
-                input(type="radio" selected name="questionOne" value="Other")
+                input(type="radio" selected name="questionOne" value="Other" id="ansOther")
                 label(for="Other") &nbsp;Other
                 br
                 br
                 label(for="questionTwo") Which temperature do you prefer?
                 br
-                input(type="radio" name="questionTwo" value="Warm")
+                input(type="radio" name="questionTwo" value="Warm" required)
                 label(for="Warm") &nbsp;Warm
                 br
                 input(type="radio" name="questionTwo" value="Cold")
@@ -92,7 +92,7 @@ block content
                 br
                 label(for="questionThree") Do you like Winnie The Pooh?
                 br
-                input(type="radio" name="questionThree" value="Yes")
+                input(type="radio" name="questionThree" value="Yes" required)
                 label(for="Yes") &nbsp;Yes
                 br
                 input(type="radio" name="questionThree" value="Definitely Yes")
