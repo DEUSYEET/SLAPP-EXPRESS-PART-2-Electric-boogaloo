@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    div(id="colorWrapperIndex")
+        div(id="wrapperIndex")
+            p Last Visited: #{lastVisit}
+            br
+            img(src=currentUser.avatarSource)
+            br
+            br
+            p Username: #{currentUser.username}
+            br
+            p Email: #{currentUser.email}
+            br
+            p Age: #{currentUser.age}
+            br
+            p What is your gender?
+            p Answer: #{currentUser.ans1}
+            br
+            p Which tempature do you prefer?
+            p Answer: #{currentUser.ans2}
+            br
+            p Do you like Winnie The Pooh?
+            p Answer: #{currentUser.ans3}
+            br
+            br
+            a(id="logP" href="/logout")
+                p Log Out
+            a(id="editP" href="/edit")
+                p Edit

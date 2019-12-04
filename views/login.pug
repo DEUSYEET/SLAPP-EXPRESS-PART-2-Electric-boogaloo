@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    div(id="colorWrapperLogin")
+        div(id="wrapperLogin")
+            h1(class="mainHeader") Log In
+            form(id="loginForm" method="post" action="/login")
+                label(for="username") Username:&nbsp;
+                input(type="text" name="username" class="inputBox")
+                br
+                label(for="password") Password:&nbsp;
+                input(type="password" name="password" class="inputBox")
+                br
+                br
+                input(type="submit" name="Log In" class="submitButton")
+                a(href="/signup")
+                    p(id="testP") Sign Up
